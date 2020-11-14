@@ -3,31 +3,29 @@
 
   // components for this layout
   import AdminNavbar from "components/Navbars/AdminNavbar.svelte";
-  import Sidebar from "components/Sidebar/Sidebar.svelte";
+  import Sidebar from "components/Sidebar/AdminSidebar.svelte";
   import HeaderStats from "components/Headers/HeaderStats.svelte";
   import FooterAdmin from "components/Footers/FooterAdmin.svelte";
 
   // pages for this layout
   import Dashboard from "views/admin/Dashboard.svelte";
-  import Settings from "views/admin/Settings.svelte";
-  import Tables from "views/admin/Tables.svelte";
-  import Maps from "views/admin/Maps.svelte";
+  import Account from "../views/admin/Account.svelte";
+  import Role from "../views/admin/Role.svelte";
 
   export let location;
   export let admin = "";
 </script>
 
 <div>
-  <Sidebar location={location}/>
+  <Sidebar {location} />
   <div class="relative md:ml-64 bg-gray-200">
     <AdminNavbar />
     <HeaderStats />
     <div class="px-4 md:px-10 mx-auto w-full -m-24">
       <Router url="admin">
-        <Route path="dashboard" component="{Dashboard}" />
-        <Route path="settings" component="{Settings}" />
-        <Route path="tables" component="{Tables}" />
-        <Route path="maps" component="{Maps}" />
+        <Route path="dashboard" component={Dashboard} />
+        <Route path="account" component={Account} />
+        <Route path="role" component={Role} />
       </Router>
       <FooterAdmin />
     </div>
