@@ -13,7 +13,6 @@
   import Role from "../views/admin/Role.svelte";
 
   export let location;
-  export let admin = "";
 </script>
 
 <div>

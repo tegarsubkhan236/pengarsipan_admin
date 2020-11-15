@@ -3,6 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
+import css from 'rollup-plugin-css-only';
 // library that helps you import in svelte with
 // absolute paths, instead of
 // import Component  from "../../../../components/Component.svelte";
@@ -56,6 +57,7 @@ export default {
     file: "public/build/bundle.js",
   },
   plugins: [
+    css({ output: 'public/build/user.css' }),
     svelte({
       // enable run-time checks when not in production
       dev: !production,
